@@ -145,8 +145,26 @@ for i in x_values:
     RV_values.append(-4/((1+i**2)**2))
     
 Renergy_levels=Reigenval(RV_values,0,N)
-print("Potencial racional: ")
-print(Renergy_levels)
+print("Potencial racional:")
+fig, ax = plt.subplots()
+
+for i, energy_level in enumerate(Renergy_levels):
+    psi=numerov(RV_values, energy_level)
+    print(f"Eigenvalue {i}: {energy_level}")
+    rounded_energy=round(energy_level, 2)
+    colors = ['b','g']
+    color = colors[i % len(colors)]
+    ax.plot(x_values, psi, label=f'E_{i}: {rounded_energy}', color=color)
+
+ax.legend()
+ax.set_title("Potencial Racional")
+plt.show()
+
+
+
+
+
+
 
 
 
