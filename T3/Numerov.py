@@ -66,6 +66,8 @@ for i,energy_level in enumerate(energy_levels):
     print(f"Eigenvalue{i}: {energy_level}")
     rounded_energy=round(energy_level,1)
     plt.plot(x_values,psi,label=f'E_{i}: {rounded_energy}')
+    plt.xlabel('x')
+    plt.ylabel('$\psi(x)$')
 
 plt.legend()
 plt.title("Potencial oscilador armonico cuantico")
@@ -110,6 +112,9 @@ for i,energy_level in enumerate(Genergy_levels):
     print(f"Eigenvalue{i}: {energy_level}")
     rounded_energy=round(energy_level,2)
     plt.plot(x_values,psi,label=f'E_{i}: {rounded_energy}')
+    plt.xlabel('x')
+    plt.ylabel('$\psi(x)$')
+    
 
 plt.legend()
 plt.title("Potencial Gaussiano")
@@ -147,7 +152,8 @@ for i in x_values:
 Renergy_levels=Reigenval(RV_values,0,N)
 print("Potencial racional:")
 fig, ax = plt.subplots()
-
+ax.set_xlabel('x')
+ax.set_ylabel('$\psi(x)$')
 for i, energy_level in enumerate(Renergy_levels):
     psi=numerov(RV_values, energy_level)
     print(f"Eigenvalue {i}: {energy_level}")
